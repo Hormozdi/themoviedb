@@ -1,10 +1,13 @@
 import React, { StrictMode } from "react";
+import { RouterProvider } from "react-router-dom";
+
+import router from "./router";
 
 import "./styles.scss";
 
 const App = () => (
   <StrictMode>
-    <h1>Hi World !!!</h1>
+    <RouterProvider router={router} />
   </StrictMode>
 );
 
