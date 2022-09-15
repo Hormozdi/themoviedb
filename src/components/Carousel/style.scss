@@ -1,27 +1,66 @@
 .swiper-carousel {
-  padding: 10px 5px;
-  cursor: pointer;
+  &:before,
+  &:after {
+    content: "";
+    width: 60px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    pointer-events: none;
+    z-index: 2;
+  }
 
-  .item {
-    .poster {
-      max-width: 100%;
-      border-radius: 10px;
-    }
-    .title {
-      font-weight: 700;
-      font-size: 1em;
+  &:before {
+    left: 0;
+    background-image: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0) 0%,
+      #fff 100%
+    );
+  }
+
+  &:after {
+    right: 0;
+    background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      #fff 100%
+    );
+  }
+
+  .slide {
+    padding: 10px 5px;
+    cursor: pointer;
+
+    .item {
+      .poster {
+        max-width: 100%;
+        border-radius: 10px;
+      }
+      .title {
+        font-weight: 700;
+        font-size: 1em;
+      }
     }
   }
 }
 
 .swiper-button-prev,
 .swiper-button-next {
-  color: white;
   opacity: 0.6;
   transform: scale(0.5);
   transition-duration: 0.5s;
+  z-index: 3;
   &:hover {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(0.8);
   }
+}
+
+.swiper-button-prev {
+  left: 5px;
+}
+
+.swiper-button-next {
+  right: 5px;
 }

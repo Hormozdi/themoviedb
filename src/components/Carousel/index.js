@@ -15,9 +15,10 @@ const Carousel = ({ delay = 3000, slidesPerView = 7, slides = [] }) => {
       navigation
       autoplay={{ delay }}
       slidesPerView={slidesPerView}
+      className="swiper-carousel"
     >
       {slides?.map((slide) => (
-        <SwiperSlide key={slide.id} className="swiper-carousel">
+        <SwiperSlide key={slide.id} className="slide">
           <span className="item">
             <img src={slide.poster} className="poster" />
             <p className="title">{slide.title}</p>
