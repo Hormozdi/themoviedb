@@ -6,7 +6,8 @@
   "author": "Hoomaan <hormozdi.hooman@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack serve"
+    "start": "webpack serve",
+    "build": "webpack --mode production"
   },
   "dependencies": {
     "css-loader": "^6.7.1",
