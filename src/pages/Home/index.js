@@ -1,17 +1,18 @@
 import React from "react";
 import Carousel from "../../components/Carousel";
-import Header from "../../components/Header";
+import Layout from "../../components/Layout";
 
 import "./style.scss";
 
 const Home = () => {
   return (
-    <>
-      <Header />
-      <Carousel />
-      <Carousel />
-      <Carousel />
-    </>
+    <Layout>
+      <>
+        <Carousel />
+        <Carousel />
+        <Carousel />
+      </>
+    </Layout>
   );
 };
 
