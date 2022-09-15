@@ -1,0 +1,16 @@
+.header-wrapper {
+  margin: 25px 15px;
+  display: flex;
+  justify-content: space-between;
+
+  .logo {
+    width: 150px;
+  }
+
+  .menu {
+    a {
+      padding-left: 15px;
+      text-decoration: none;
+    }
+  }
+}
