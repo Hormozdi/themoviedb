@@ -1,0 +1,8 @@
+{
+  "name": "themoviedb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Hormozdi/themoviedb.git",
+  "author": "Hoomaan <hormozdi.hooman@gmail.com>",
+  "license": "MIT"
+}
