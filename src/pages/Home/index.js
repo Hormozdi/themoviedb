@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 
 import Carousel from "../../components/Carousel";
 import Layout from "../../components/Layout";
-import useStore from "../../store/useStore";
+import mainStore from "../../store/mainStore";
 
 import "./style.scss";
 
 const Home = () => {
-  const { genres, getGenres, carousels, getGenreMovies } = useStore(
+  const { genres, getGenres, carousels, getGenreMovies } = mainStore(
     (state) => state
   );
 
