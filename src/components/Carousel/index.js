@@ -17,7 +17,7 @@ const Carousel = ({
   title = "",
 }) => {
   return (
-    <>
+    <div className="carousel-container">
       <h2 className="carousel-title">{title}</h2>
       <Swiper
         modules={[Navigation, Autoplay]}
@@ -36,7 +36,7 @@ const Carousel = ({
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </div>
   );
 };
 

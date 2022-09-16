@@ -2,9 +2,16 @@
   border: 2px solid #eaeaea;
   padding: 10px 20px;
   border-radius: 5px;
-  background-color: #00bdff;
   color: #fff;
   cursor: pointer;
+
+  &.btn-info {
+    background-color: #00bdff;
+  }
+
+  &.btn-danger {
+    background-color: #ff7700;
+  }
 
   &:disabled {
     opacity: 0.6;

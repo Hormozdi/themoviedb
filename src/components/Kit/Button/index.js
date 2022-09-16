@@ -2,8 +2,8 @@ import React from "react";
 
 import "./style.scss";
 
-const Button = ({ children, ...props }) => (
-  <button {...props} className="button-main">
+const Button = ({ children, classes = "btn-info", ...props }) => (
+  <button {...props} className={`button-main ${classes}`}>
     {children}
   </button>
 );
