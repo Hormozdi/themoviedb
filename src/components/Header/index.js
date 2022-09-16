@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <div className="header-wrapper">
       <Link to="/">
-        <img src="assets/logo.svg" className="logo" />
+        <img src="/assets/logo.svg" className="logo" />
       </Link>
       <div className="menu">
         {menuItems?.map((item) => (

@@ -4,8 +4,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 dotenv.config();
 
+const isDevelopment = process.env.NODE_ENV !== "production";
+
 module.exports = {
-  mode: "development",
+  mode: isDevelopment ? "development" : "production",
   devServer: {
     historyApiFallback: true,
   },
