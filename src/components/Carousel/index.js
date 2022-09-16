@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
 
+import Image from "../Kit/Image";
+
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -28,7 +30,7 @@ const Carousel = ({
         {slides?.map((slide) => (
           <SwiperSlide key={slide.id} className="slide">
             <Link to={`movie/${slide.id}`} className="item">
-              <img src={slide.poster} className="poster" />
+              <Image src={slide.poster} />
               <p className="title">{slide.title}</p>
             </Link>
           </SwiperSlide>

@@ -1,0 +1,13 @@
+.button-main {
+  border: 2px solid #eaeaea;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #00bdff;
+  color: #fff;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

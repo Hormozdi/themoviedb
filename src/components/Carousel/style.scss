@@ -10,7 +10,7 @@
     height: 100%;
     position: absolute;
     top: 0;
-    pointer-events: none;
+    cursor: not-allowed;
     z-index: 2;
   }
 
@@ -39,10 +39,6 @@
     .item {
       text-decoration: none;
       color: #000;
-      .poster {
-        max-width: 100%;
-        border-radius: 10px;
-      }
       .title {
         font-weight: 700;
         font-size: 1em;
