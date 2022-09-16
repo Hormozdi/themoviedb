@@ -33,6 +33,8 @@
     cursor: pointer;
 
     .item {
+      text-decoration: none;
+      color: #000;
       .poster {
         max-width: 100%;
         border-radius: 10px;

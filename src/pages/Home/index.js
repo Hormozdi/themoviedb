@@ -32,20 +32,18 @@ const Home = () => {
   return (
     <Layout>
       <>
-        {carousels?.map((carousel) => {
-          console.log(carousel);
-          return (
-            <Carousel
-              slides={[
-                ...carousel.movies.map((movie) => ({
-                  id: movie.id,
-                  poster: `https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}`,
-                  title: movie.title,
-                })),
-              ]}
-            />
-          );
-        })}
+        {carousels?.map((carousel) => (
+          <Carousel
+            key={carousel.id}
+            slides={[
+              ...carousel.movies.map((movie) => ({
+                id: movie.id,
+                poster: `https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}`,
+                title: movie.title,
+              })),
+            ]}
+          />
+        ))}
       </>
     </Layout>
   );
