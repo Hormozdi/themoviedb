@@ -33,6 +33,10 @@ module.exports = {
           { loader: "sass-loader", options: { sourceMap: true } },
         ],
       },
+      {
+        test: /\.(gif|svg|jpg|png)$/,
+        loader: "file-loader",
+      },
     ],
   },
   plugins: [
