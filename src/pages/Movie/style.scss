@@ -1,0 +1,9 @@
+.single-movie-container {
+  display: flex;
+  align-items: center;
+
+  .data-section {
+    flex-grow: 1;
+    padding-left: 50px;
+  }
+}
