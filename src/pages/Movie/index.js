@@ -44,8 +44,8 @@ const Movie = () => {
                   { name: "Status", value: movie.status },
                   { name: "Release date", value: movie.release_date },
                   { name: "Tagline", value: movie.tagline },
-                ].map((el) => (
-                  <div key={el.name}>
+                ].map((el, index) => (
+                  <div key={el.name} className={index % 2 && "gray-bg"}>
                     <span>{el.name}</span>
                     <span>{el.value}</span>
                   </div>

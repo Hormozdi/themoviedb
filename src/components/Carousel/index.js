@@ -29,7 +29,7 @@ const Carousel = ({
       >
         {slides?.map((slide) => (
           <SwiperSlide key={slide.id} className="slide">
-            <Link to={`movie/${slide.id}`} className="item">
+            <Link to={`/movie/${slide.id}`} className="item">
               <Image src={slide.poster} />
               <p className="title">{slide.title}</p>
             </Link>
