@@ -1,25 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { FaHandHoldingHeart } from "react-icons/fa";
 
-import Button from "../../components/Kit/Button";
-import Image from "../../components/Kit/Image";
 import Layout from "../../components/Layout";
 import mainStore from "../../store/mainStore";
+import MovieDescription from "../MovieDescription";
 
 import "./style.scss";
 
 const Movie = () => {
   const { id } = useParams();
 
-  const {
-    movie,
-    getMovie,
-    resetMovie,
-    wishlist,
-    getWishlistFromLocalstorage,
-    addToWishlist,
-  } = mainStore((state) => state);
+  const { movie, getMovie, resetMovie, getWishlistFromLocalstorage } =
+    mainStore((state) => state);
 
   useEffect(() => {
     getWishlistFromLocalstorage();
@@ -37,17 +29,28 @@ const Movie = () => {
       <div className="container">
         {movie.title && (
           <div className="single-movie-container">
-            <Image
-              src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${movie.poster_path}`}
+            <MovieDescription
+              id={movie.id}
+              overview={movie.overview}
+              title={movie.title}
+              imagSource={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${movie.poster_path}`}
             />
-            <div className="data-section">
-              <Button
-                onClick={() => addToWishlist(movie.id)}
-                disabled={wishlist.includes(movie.id)}
-              >
-                <FaHandHoldingHeart /> Add to Wishlist
-              </Button>
-              <p>{movie.overview}</p>
+            <div className="single-movie-details">
+              <h3>Details</h3>
+              <div className="single-movie-details-table">
+                {[
+                  { name: "Original language", value: movie.original_language },
+                  { name: "Adult", value: movie.adult.toString() },
+                  { name: "Status", value: movie.status },
+                  { name: "Release date", value: movie.release_date },
+                  { name: "Tagline", value: movie.tagline },
+                ].map((el) => (
+                  <div key={el.name}>
+                    <span>{el.name}</span>
+                    <span>{el.value}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         )}

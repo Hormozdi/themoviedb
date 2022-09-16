@@ -21,6 +21,18 @@ const createWishlistSlice = (set, get) => ({
     set({ wishlist });
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
   },
+  removeFromWishlist: (id) => {
+    let { wishlist } = get();
+    const { getWishlistFromLocalstorage } = get();
+    if (!wishlist?.length) {
+      getWishlistFromLocalstorage();
+      wishlist = get().wishlist;
+    }
+
+    wishlist = wishlist.filter((el) => el !== id);
+    set({ wishlist });
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  },
 });
 
 export default createWishlistSlice;

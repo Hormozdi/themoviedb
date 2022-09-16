@@ -1,9 +1,19 @@
 .single-movie-container {
-  display: flex;
-  align-items: center;
+  .single-movie-details {
+    margin-top: 50px;
 
-  .data-section {
-    flex-grow: 1;
-    padding-left: 50px;
+    .single-movie-details-table {
+      display: flex;
+      flex-direction: column;
+      & > * {
+        display: flex;
+        flex-grow: 1;
+        padding: 5px 0;
+
+        span {
+          flex: 1;
+        }
+      }
+    }
   }
 }
