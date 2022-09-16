@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 
 import "./style.scss";
 
-const Carousel = ({ delay = 3000, slidesPerView = 7, slides = [] }) => {
+const Carousel = ({ delay = 5000, slidesPerView = 7, slides = [] }) => {
   return (
     <Swiper
       modules={[Navigation, Autoplay]}
