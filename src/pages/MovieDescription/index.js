@@ -8,7 +8,7 @@ import mainStore from "../../store/mainStore";
 import "./style.scss";
 
 const MovieDescription = ({ id, imagSource, overview, title }) => {
-  const { wishlist, addToWishlist, removeFromWishlist } = mainStore(
+  const { wishlistIds, addToWishlist, removeFromWishlist } = mainStore(
     (state) => state
   );
 
@@ -17,7 +17,7 @@ const MovieDescription = ({ id, imagSource, overview, title }) => {
       <Image src={imagSource} />
       <div className="data-section">
         <h1>{title}</h1>
-        {wishlist.includes(id) ? (
+        {wishlistIds.includes(id) ? (
           <Button classes="btn-danger" onClick={() => removeFromWishlist(id)}>
             <FaHeartBroken /> Remove from Wishlist
           </Button>

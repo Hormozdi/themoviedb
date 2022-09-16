@@ -1,37 +1,51 @@
+import { callHttp } from "../../utils/httpService";
+
 const createWishlistSlice = (set, get) => ({
-  wishlist: [],
+  wishlistIds: [],
+  wishlistMovies: {},
   getWishlistFromLocalstorage: () => {
-    let { wishlist } = get();
-    if (!wishlist?.length) {
-      wishlist = JSON.parse(localStorage.getItem("wishlist"));
-      if (wishlist?.length) {
-        set({ wishlist });
+    let { wishlistIds } = get();
+    if (!wishlistIds?.length) {
+      wishlistIds = JSON.parse(localStorage.getItem("wishlistIds"));
+      if (wishlistIds?.length) {
+        set({ wishlistIds });
       }
     }
   },
   addToWishlist: (id) => {
-    let { wishlist } = get();
+    let { wishlistIds } = get();
     const { getWishlistFromLocalstorage } = get();
-    if (!wishlist?.length) {
+    if (!wishlistIds?.length) {
       getWishlistFromLocalstorage();
-      wishlist = get().wishlist;
+      wishlistIds = get().wishlistIds;
     }
 
-    wishlist = [...wishlist, id];
-    set({ wishlist });
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    wishlistIds = [...wishlistIds, id];
+    set({ wishlistIds });
+    localStorage.setItem("wishlistIds", JSON.stringify(wishlistIds));
   },
   removeFromWishlist: (id) => {
-    let { wishlist } = get();
+    let { wishlistIds } = get();
     const { getWishlistFromLocalstorage } = get();
-    if (!wishlist?.length) {
+    if (!wishlistIds?.length) {
       getWishlistFromLocalstorage();
-      wishlist = get().wishlist;
+      wishlistIds = get().wishlistIds;
     }
 
-    wishlist = wishlist.filter((el) => el !== id);
-    set({ wishlist });
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    wishlistIds = wishlistIds.filter((el) => el !== id);
+    set({ wishlistIds });
+    localStorage.setItem("wishlistIds", JSON.stringify(wishlistIds));
+  },
+  addMovieToWishlist: async () => {
+    const { wishlistIds, wishlistMovies } = get();
+
+    for (let i = 0; i < wishlistIds.length; i++) {
+      const id = wishlistIds[i];
+      if (!wishlistMovies[id]) {
+        wishlistMovies[id] = await callHttp("get", `movie/${id}`);
+      }
+    }
+    set({ wishlistMovies });
   },
 });
 

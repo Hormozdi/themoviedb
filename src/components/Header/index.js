@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 import "./style.scss";
 
 const Header = () => {
-  const menuItems = [{ to: "/", title: "Home" }];
+  const menuItems = [
+    { to: "/", title: "Home" },
+    { to: "/wishlist", title: "Wishlist" },
+  ];
 
   return (
     <div className="header-wrapper">
