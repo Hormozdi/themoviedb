@@ -7,4 +7,15 @@
     flex-grow: 1;
     padding-left: 50px;
   }
+
+  .more-link {
+    padding-left: 15px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-left: 5px;
+    }
+  }
 }
