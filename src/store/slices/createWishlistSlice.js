@@ -42,7 +42,10 @@ const createWishlistSlice = (set, get) => ({
     for (let i = 0; i < wishlistIds.length; i++) {
       const id = wishlistIds[i];
       if (!wishlistMovies[id]) {
+        const { setLoading } = get();
+        setLoading(true);
         wishlistMovies[id] = await callHttp("get", `movie/${id}`);
+        setLoading(false);
       }
     }
     set({ wishlistMovies });

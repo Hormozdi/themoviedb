@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import Layout from "../../components/Layout";
+import NoItem from "../../components/NoItem";
 import mainStore from "../../store/mainStore";
 import MovieDescription from "../MovieDescription";
 
@@ -21,13 +22,15 @@ const Movie = () => {
     if (id) {
       getMovie(id);
     }
-    return () => resetMovie();
+    return () => {
+      resetMovie();
+    };
   }, [id, getMovie]);
 
   return (
     <Layout>
       <div className="container">
-        {movie.title && (
+        {movie.title ? (
           <div className="single-movie-container">
             <MovieDescription
               id={movie.id}
@@ -53,6 +56,8 @@ const Movie = () => {
               </div>
             </div>
           </div>
+        ) : (
+          <NoItem />
         )}
       </div>
     </Layout>
