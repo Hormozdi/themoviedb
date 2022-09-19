@@ -1,5 +1,6 @@
 # The Movie DB
 ### Todo
+- [ ] Multi font and button styles
 - [ ] Support SSR
 - [ ] write test cases
 - [ ] Modify images URL
